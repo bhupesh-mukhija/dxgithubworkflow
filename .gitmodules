@@ -1,0 +1,4 @@
+[submodule "config"]
+	branch = master
+	path = config
+	url = git@github.com-my:bhupesh-mukhija/config-repo.git
