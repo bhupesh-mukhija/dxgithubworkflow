@@ -11,6 +11,8 @@ jobs:
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          submodules: true
       - name: Hello world action step
         uses: ./config/testfolder # Uses an action in the root directory
         id: hello
