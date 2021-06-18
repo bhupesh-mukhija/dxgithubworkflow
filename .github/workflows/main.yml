@@ -13,6 +13,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           submodules: true
+        run: ls -l ./config
       - name: Hello world action step
         uses: ./config/testfolder # Uses an action in the root directory
         id: hello
