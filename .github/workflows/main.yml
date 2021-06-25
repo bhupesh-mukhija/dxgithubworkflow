@@ -5,7 +5,7 @@ on:
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Run SFDX
     steps:
       # To use this repository's private action,
       # you must check out the repository
@@ -15,11 +15,12 @@ jobs:
           submodules: true
       - name: Test config
         run: ls -l ./config
-      - name: Hello world action step
-        uses: ./config/testfolder # Uses an action in the root directory
+      - name: Call action from config repo
+        uses: ./config/testfolder # Uses an action in the specified directory
         id: hello
-        with:
-          who-to-greet: 'Mona the Octocat'
+        # pass input parameter
+        #with:
+          #param1: 'Super'
       # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+      #- name: Get the output time
+        #run: echo "The time was ${{ steps.hello.outputs.time }}"
