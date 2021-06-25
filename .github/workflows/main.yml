@@ -13,8 +13,6 @@ jobs:
         uses: actions/checkout@v2
         with:
           submodules: true
-      - name: Test config
-        run: echo ${{secrets.DEV_HUB}}
       - name: Call action from config repo
         uses: ./config/testfolder # Uses an action in the specified directory
         id: hello
