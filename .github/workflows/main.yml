@@ -14,7 +14,7 @@ jobs:
         with:
           submodules: true
       - name: Call action from config repo
-        uses: ./config/testfolder # Uses an action in the specified directory
+        uses: ./config # Uses an action in the specified directory
         id: hello
         # pass input parameter
         with:
