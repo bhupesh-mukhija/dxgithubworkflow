@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RunTrigger__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Field to control trigger run</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Run Trigger</label>
+    <type>Checkbox</type>
+</CustomField>
