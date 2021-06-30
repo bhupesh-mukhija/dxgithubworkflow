@@ -4,20 +4,20 @@
           "path": "sales",
           "default": true,
           "package": "salesforce-global-sales",
-          "versionName": "ver 1.1.0",
-          "versionNumber": "1.20.0.NEXT",
+          "versionName": "1.2.0",
+          "versionNumber": "1.2.0.NEXT",
           "dependencies": [
               {
                   "package": "salesforce-global-core",
-                  "versionNumber": "1.9.0.LATEST"
+                  "versionNumber": "1.0.1.LATEST"
               },
               {
                   "package": "salesforce-global-coredatamodel",
-                  "versionNumber": "1.14.0.LATEST"
+                  "versionNumber": "1.1.0.LATEST"
               },
               {
                   "package": "salesforce-global-connect",
-                  "versionNumber": "1.0.1.LATEST"
+                  "versionNumber": "1.0.0.LATEST"
               }
           ]
       },
@@ -30,9 +30,9 @@
   "sfdcLoginUrl": "https://login.salesforce.com",
   "sourceApiVersion": "51.0",
   "packageAliases": {
-      "salesforce-global-sales": "0Ho1o000000fxSzCAI",
-      "salesforce-global-core": "0Ho1o0000000019CAA",
-      "salesforce-global-coredatamodel": "0Ho1o000000blJnCAI",
-      "salesforce-global-connect": "0Ho1o000000001ECAQ"
+      "salesforce-global-sales": "0Ho4K0000004CFWSA2",
+      "salesforce-global-core": "0Ho4K0000004CFHSA2",
+      "salesforce-global-coredatamodel": "0Ho4K0000004CFRSA2",
+      "salesforce-global-connect": "0Ho4K0000004CFMSA2"
   }
 }
