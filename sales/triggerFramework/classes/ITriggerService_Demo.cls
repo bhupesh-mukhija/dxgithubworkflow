@@ -1,4 +1,4 @@
-public interface ITriggerService {
+public interface ITriggerService_Demo {
     void onBeforeInsert();
     void onBeforeUpdate();
     void onBeforeDelete();
