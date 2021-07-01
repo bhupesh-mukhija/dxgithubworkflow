@@ -1,3 +1,4 @@
+name: Main Workflow
 on:
   push:
     branches: [ main ]
@@ -9,13 +10,14 @@ jobs:
     steps:
       # To use this repository's private action,
       # you must check out the repository
-      - name: Checkout
+      - name: Checkout Repository Main Branch
         uses: actions/checkout@v2
         with:
           submodules: true
       - name: Call action from config repo
         uses: ./config/workflow # Uses an action in the specified directory
-        id: hello
+        env:
+          DEV_HUB_URL: ${{ secrets.DEV_HUB }}
         # pass input parameter
         with:
           dev-hub: ${{ secrets.DEV_HUB }}
