@@ -26,4 +26,4 @@ jobs:
       - name: Send Notification
         if: ${{ failure() }}
         shell: bash
-        run: ./scripts/testfolder/test.sh
+        run: ./config/scripts/testfolder/test.sh
