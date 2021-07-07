@@ -6,7 +6,7 @@ on:
 jobs:
   main_sfdx_ci:
     runs-on: ubuntu-latest
-    name: Run SFDX
+    name: Create Package Version
     steps:
       # To use this repository's private action,
       # you must check out the repository
@@ -20,10 +20,11 @@ jobs:
           DEV_HUB_URL: ${{ secrets.DEV_HUB }}
           USE_BRANCH: false
           ERR_DEPENDENCY_VALIDATION: true
+          SCRIPTS_PATH: /github/workspace
         # pass input parameter
         with:
           operation: create_version
       - name: Send Notification
         if: ${{ failure() }}
         shell: bash
-        run: ls -l ./config/
+        run: ./config/scripts/ci/sendNotification.sh
