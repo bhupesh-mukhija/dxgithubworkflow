@@ -23,3 +23,7 @@ jobs:
         # pass input parameter
         with:
           operation: create_version
+      - name: Send Notification
+        if: ${{ failure() }}
+        shell: bash
+        run: ./scripts/testfolder/test.sh
