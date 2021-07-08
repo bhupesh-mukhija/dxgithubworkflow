@@ -18,8 +18,8 @@ jobs:
         uses: ./config/workflow # Uses an action in the specified directory
         env:
           DEV_HUB_URL: ${{ secrets.DEV_HUB }}
-          USE_BRANCH: false
-          ERR_DEPENDENCY_VALIDATION: true
+          BRANCH: ${{ github.ref }}
+          #ERR_DEPENDENCY_VALIDATION: true
           SCRIPTS_PATH: /github/workspace
         # pass input parameter
         with:
