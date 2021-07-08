@@ -33,8 +33,8 @@ jobs:
           DEV_HUB_URL: ${{ secrets.DEV_HUB }}
           SCRIPTS_PATH: /github/workspace
           SUB_VERSION_ID: ${{ steps.createpkg.outputs.package_version_id }}
-        with:
-          operation: install_version
+        #with:
+          #operation: install_version
         shell: bash
         run: ./config/scripts/ci/install.sh
       - name: Send Notification
