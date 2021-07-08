@@ -19,12 +19,13 @@ jobs:
         env:
           DEV_HUB_URL: ${{ secrets.DEV_HUB }}
           BRANCH: ${{ github.ref }}
-          #ERR_DEPENDENCY_VALIDATION: true
           SCRIPTS_PATH: /github/workspace
         # pass input parameter
         with:
           operation: create_version
       - name: Send Notification
+        env:
+          SCRIPTS_PATH: /github/workspace
         if: ${{ failure() }}
         shell: bash
         run: ./config/scripts/ci/sendNotification.sh
