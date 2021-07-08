@@ -25,7 +25,7 @@ jobs:
           operation: create_version
       - name: Send Notification
         env:
-          SCRIPTS_PATH: /github/workspace
+          SCRIPTS_PATH: .
         if: ${{ failure() }}
         shell: bash
         run: ./config/scripts/ci/sendNotification.sh
