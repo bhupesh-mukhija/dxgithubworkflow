@@ -11,10 +11,12 @@ jobs:
       # To use this repository's private action,
       # you must check out the repository
       - name: Checkout Repository Main Branch
+        id: checkout
         uses: actions/checkout@v2
         with:
           submodules: true
       - name: Create Package Version
+        id: createpkg
         uses: ./config/workflow # Uses an action in the specified directory
         env:
           DEV_HUB_URL: ${{ secrets.DEV_HUB }}
@@ -23,9 +25,22 @@ jobs:
         # pass input parameter
         with:
           operation: create_version
+      - name: Install Package
+        id: installpkg
+        if: ${{ failure() }}
+        #uses: ./config/workflow # Uses an action in the specified directory
+        env:
+          DEV_HUB_URL: ${{ secrets.DEV_HUB }}
+          SCRIPTS_PATH: /github/workspace
+          SUB_VERSION_ID: ${{ steps.createpkg.outputs.package_version_id }}
+        with:
+          operation: install_version
+        shell: bash
+        run: ./config/scripts/ci/install.sh
       - name: Send Notification
         env:
           SCRIPTS_PATH: .
         if: ${{ failure() }}
         shell: bash
         run: ./config/scripts/ci/sendNotification.sh
+      
