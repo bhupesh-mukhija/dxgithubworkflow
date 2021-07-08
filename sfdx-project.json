@@ -9,15 +9,15 @@
           "dependencies": [
               {
                   "package": "salesforce-global-core",
-                  "versionNumber": "1.0.1.LATEST"
+                  "versionNumber": "2.0.0.LATEST"
               },
               {
                   "package": "salesforce-global-coredatamodel",
-                  "versionNumber": "1.1.0.LATEST"
+                  "versionNumber": "2.0.0.LATEST"
               },
               {
                   "package": "salesforce-global-connect",
-                  "versionNumber": "1.0.0.LATEST"
+                  "versionNumber": "1.1.0.LATEST"
               }
           ]
       },
