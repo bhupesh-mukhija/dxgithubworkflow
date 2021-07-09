@@ -1,7 +1,7 @@
 on:
   workflow_run:
     workflows:
-      - Test_Workflow
+      - Test Workflow
     types: 
       - completed
 jobs:
@@ -12,6 +12,7 @@ jobs:
         id: run_bash
         shell: bash
         run: echo "Workflow run install dev"
+            echo ${{ github.event.workflow_run.conclusion }}
   install_ci:
     runs-on: ubuntu-latest
     steps:
@@ -19,6 +20,7 @@ jobs:
         id: run_bash
         shell: bash
         run: echo "Workflow run install sageci"
+          echo ${{ github.event.workflow_run.conclusion }}
   install_sit:
     runs-on: ubuntu-latest
     steps:
@@ -26,4 +28,7 @@ jobs:
         id: run_bash
         shell: bash
         run: echo "Workflow run install sit1"
-  
+            echo ${{ github.event.workflow_run.conclusion }}
+            echo ${{ github.event.workflow_run.steps[*] }}
+            echo ${{ github.event.workflow_run.steps.run_bash }}
+            echo ${{ github.event.workflow_run.steps.run_bash.outputs.output_var }}

@@ -1,7 +1,7 @@
 name: Create Package Workflow
 on:
-  push:
-    branches: [ main ]
+  #push:
+    #branches: [ main ]
   workflow_dispatch:
 jobs:
   main_sfdx_ci:
