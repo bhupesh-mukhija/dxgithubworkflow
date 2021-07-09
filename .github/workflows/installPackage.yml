@@ -1,0 +1,27 @@
+on:
+  workflow_run:
+    workflows: ["run_main"]
+    types: [completed]
+jobs:
+  install_dev:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install package in ecomm2dev
+        id: run_bash
+        shell: bash
+        run: echo "Workflow run install dev"
+  install_ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install package in ci
+        id: run_bash
+        shell: bash
+        run: echo "Workflow run install sageci"
+  install_sit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install package in sit
+        id: run_bash
+        shell: bash
+        run: echo "Workflow run install sit1"
+  

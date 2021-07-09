@@ -27,7 +27,7 @@ jobs:
           operation: create_version
       - name: Install Package
         id: installpkg
-        if: ${{ failure() }}
+        if: ${{ success() }}
         #uses: ./config/workflow # Uses an action in the specified directory
         env:
           DEV_HUB_URL: ${{ secrets.DEV_HUB }}
