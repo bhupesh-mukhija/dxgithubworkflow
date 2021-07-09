@@ -25,18 +25,6 @@ jobs:
         # pass input parameter
         with:
           operation: create_version
-      - name: Install Package
-        id: installpkg
-        if: ${{ success() }}
-        #uses: ./config/workflow # Uses an action in the specified directory
-        env:
-          DEV_HUB_URL: ${{ secrets.DEV_HUB }}
-          SCRIPTS_PATH: /github/workspace
-          SUB_VERSION_ID: ${{ steps.createpkg.outputs.package_version_id }}
-        #with:
-          #operation: install_version
-        shell: bash
-        run: ./config/scripts/ci/install.sh
       - name: Send Notification
         env:
           SCRIPTS_PATH: .
