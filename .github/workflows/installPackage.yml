@@ -1,7 +1,9 @@
 on:
   workflow_run:
-    workflows: ["run_main"]
-    types: [completed]
+    workflows:
+      - Test_Workflow
+    types: 
+      - completed
 jobs:
   install_dev:
     runs-on: ubuntu-latest
