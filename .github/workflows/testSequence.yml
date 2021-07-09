@@ -15,5 +15,7 @@ jobs:
        - name: composite step
          id: createpkg
          uses: ./config/test/
-        #shell: bash
-        #run: echo "Workflow Run Completed"
+       - name: check output
+         id: chkop
+         shell: bash
+         run: echo ${{ steps.createpkg.outputs.output_step_var }}
