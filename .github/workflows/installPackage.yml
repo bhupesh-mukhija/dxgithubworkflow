@@ -33,5 +33,6 @@ jobs:
             echo "Workflow run install sit1"
             echo ${{ github.event.workflow_run.conclusion }}
             echo ${{ github.event.workflow_run.steps[*] }}
+            echo ${{ github.event.workflow_run.steps.createpkg.conclusion }}
             echo ${{ github.event.workflow_run.steps.createpkg }}
             echo ${{ github.event.workflow_run.steps.createpkg.outputs.output_step_var }}
