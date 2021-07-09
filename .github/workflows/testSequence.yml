@@ -14,6 +14,7 @@ jobs:
           submodules: true
        - name: composite step
          id: createpkg
-         uses: ./config/workflow/test/
+         uses: ./config/test/
+         run: echo Output Data ${{ steps.createpkg.outputs.output_step_var }}
         #shell: bash
         #run: echo "Workflow Run Completed"
