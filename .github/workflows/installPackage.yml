@@ -1,38 +1,68 @@
 on:
   workflow_run:
     workflows:
-      - Test Workflow
+      - create_package_workflow
     types: 
       - completed
+  workflow_dispatch:
 jobs:
   install_dev:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
-      - name: Install package in ecomm2dev
-        id: run_bash
-        shell: bash
-        run: |
-            echo "Workflow run install dev"
-            echo ${{ github.event.workflow_run.conclusion }}
+      - name: Checkout Repository Main Branch
+        id: checkout
+        uses: actions/checkout@v2
+        with:
+          ref: main
+          submodules: true
+      - name: Install package in dev environment
+        id: install_dev
+        uses: ./config/workflow # Uses an action in the specified directory
+        env:
+          DEV_HUB_URL: ${{ secrets.DEV_HUB }}
+          ENV_URL: ${{ secrets.DEV_ENV }}
+          SCRIPTS_PATH: /github/workspace
+        # pass input parameter
+        with:
+          operation: install_version
   install_ci:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
-      - name: Install package in ci
-        id: run_bash
-        shell: bash
-        run: |
-          echo "Workflow run install sageci"
-          echo ${{ github.event.workflow_run.conclusion }}
+      - name: Checkout Repository Main Branch
+        id: checkout
+        uses: actions/checkout@v2
+        with:
+          ref: main
+          submodules: true
+      - name: Install package in ci environment
+        id: install_ci
+        uses: ./config/workflow # Uses an action in the specified directory
+        env:
+          DEV_HUB_URL: ${{ secrets.DEV_HUB }}
+          ENV_URL: ${{ secrets.CI_ENV }}
+          SCRIPTS_PATH: /github/workspace
+        # pass input parameter
+        with:
+          operation: install_version
   install_sit:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
-      - name: Install package in sit
-        id: run_bash
-        shell: bash
-        run: |
-            echo "Workflow run install sit1"
-            echo ${{ github.event.workflow_run.conclusion }}
-            echo ${{ github.event.workflow_run.steps[*] }}
-            echo ${{ github.event.workflow_run.steps.createpkg.conclusion }}
-            echo ${{ github.event.workflow_run.steps.createpkg }}
-            echo ${{ github.event.workflow_run.steps.createpkg.outputs.output_step_var }}
+      - name: Checkout Repository Main Branch
+        id: checkout
+        uses: actions/checkout@v2
+        with:
+          ref: main
+          submodules: true
+      - name: Install package in sit environment
+        id: install_sit
+        uses: ./config/workflow # Uses an action in the specified directory
+        env:
+          DEV_HUB_URL: ${{ secrets.DEV_HUB }}
+          ENV_URL: ${{ secrets.SIT_ENV }}
+          SCRIPTS_PATH: /github/workspace
+        # pass input parameter
+        with:
+          operation: install_version

@@ -1,4 +1,4 @@
-name: Create Package Workflow
+name: create_package_workflow
 on:
   #push:
     #branches: [ main ]
