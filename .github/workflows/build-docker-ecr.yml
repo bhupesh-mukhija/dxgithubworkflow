@@ -27,11 +27,8 @@ jobs:
           DEV_HUB_URL: ${{ secrets.DEV_HUB }}
           BRANCH: ${{ github.ref }}
           SCRIPTS_PATH: /github/workspace
-          ECR_REGISTRY: ${{ steps.login-aws-ecr.outputs.registry }}
-          ECR_REPOSITORY: sfdxdocker
-          IMAGE_TAG: latest
         # pass input parameter
         with:
           operation: create_version
-          imageurl: $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          imageurl: ${{ steps.login-aws-ecr.outputs.registry }}/sfdxdocker:latest
       
