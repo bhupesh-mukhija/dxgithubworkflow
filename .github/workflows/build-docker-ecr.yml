@@ -1,15 +1,11 @@
 name: create_package_workflow
 on:
-  #push:
-    #branches: [ main ]
   workflow_dispatch:
 jobs:
   main_sfdx_ci:
     runs-on: ubuntu-latest
     name: Create Package Version
     steps:
-      # To use this repository's private action,
-      # you must check out the repository
       - name: Checkout Repository Main Branch
         id: checkout
         uses: actions/checkout@v2
@@ -24,21 +20,18 @@ jobs:
       - name: Login to AWS ECR
         id: login-aws-ecr
         uses: aws-actions/amazon-ecr-login@v1
-      - name: Create Package Version
+      - name: Run Container
         id: createpkg
-        uses: ./config/workflow/run-container # Uses an action in the specified directory
+        uses: ./config/workflow/run-container-ecr # Uses an action in the specified directory
         env:
           DEV_HUB_URL: ${{ secrets.DEV_HUB }}
           BRANCH: ${{ github.ref }}
           SCRIPTS_PATH: /github/workspace
+          ECR_REGISTRY: ${{ steps.login-aws-ecr.outputs.registry }}
+          ECR_REPOSITORY: sfdxdocker
+          IMAGE_TAG: latest
         # pass input parameter
         with:
           operation: create_version
           imageurl: $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-      - name: Send Notification
-        env:
-          SCRIPTS_PATH: .
-        if: ${{ failure() }}
-        shell: bash
-        run: ./config/scripts/ci/sendNotification.sh
       

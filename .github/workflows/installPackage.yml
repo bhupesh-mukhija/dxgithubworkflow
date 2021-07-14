@@ -8,7 +8,7 @@ on:
 jobs:
   install_dev:
     runs-on: ubuntu-latest
-    #if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Checkout Repository Main Branch
         id: checkout
@@ -28,7 +28,7 @@ jobs:
           operation: install_version
   install_ci:
     runs-on: ubuntu-latest
-    #if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Checkout Repository Main Branch
         id: checkout
@@ -48,7 +48,7 @@ jobs:
           operation: install_version
   install_sit:
     runs-on: ubuntu-latest
-    #if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Checkout Repository Main Branch
         id: checkout
