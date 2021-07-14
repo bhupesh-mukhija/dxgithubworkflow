@@ -1,4 +1,4 @@
-name: create_package_workflow
+name: Image from Ecr
 on:
   workflow_dispatch:
 jobs:
