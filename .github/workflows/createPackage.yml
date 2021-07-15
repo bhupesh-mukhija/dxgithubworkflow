@@ -26,7 +26,7 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v1
       - name: Create Package Version
         id: createpkg
-        uses: ./config/workflow/run-container # Uses an action in the specified directory
+        uses: ./config/workflow # Uses an action in the specified directory
         env:
           DEV_HUB_URL: ${{ secrets.DEV_HUB }}
           BRANCH: ${{ github.ref }}
