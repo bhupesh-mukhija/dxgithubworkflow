@@ -32,6 +32,7 @@ jobs:
         env:
           DEV_HUB_URL: ${{ secrets.DEV_HUB }}
           BRANCH: ${{ github.ref }}
+          LATEST_COMMIT: ${{ github.sha }}
           SCRIPTS_PATH: /operation/workspace
           IMAGE_NAME: dockerdx:latest
         # pass input parameter
