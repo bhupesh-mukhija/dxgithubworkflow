@@ -18,11 +18,11 @@ jobs:
           submodules: true
       - name: Install package in dev environment
         id: install_dev
-        uses: ./config/workflow # Uses an action in the specified directory
+        uses: ./config/workflow/run-container # Uses an action in the specified directory
         env:
           DEV_HUB_URL: ${{ secrets.DEV_HUB }}
           ENV_URL: ${{ secrets.DEV_ENV }}
-          SCRIPTS_PATH: /github/workspace
+          SCRIPTS_PATH: /operation/workspace
         # pass input parameter
         with:
           operation: install_version
@@ -38,11 +38,11 @@ jobs:
           submodules: true
       - name: Install package in ci environment
         id: install_ci
-        uses: ./config/workflow # Uses an action in the specified directory
+        uses: ./config/workflow/run-container # Uses an action in the specified directory
         env:
           DEV_HUB_URL: ${{ secrets.DEV_HUB }}
           ENV_URL: ${{ secrets.CI_ENV }}
-          SCRIPTS_PATH: /github/workspace
+          SCRIPTS_PATH: /operation/workspace
         # pass input parameter
         with:
           operation: install_version
@@ -58,11 +58,11 @@ jobs:
           submodules: true
       - name: Install package in sit environment
         id: install_sit
-        uses: ./config/workflow # Uses an action in the specified directory
+        uses: ./config/workflow/run-container # Uses an action in the specified directory
         env:
           DEV_HUB_URL: ${{ secrets.DEV_HUB }}
           ENV_URL: ${{ secrets.SIT_ENV }}
-          SCRIPTS_PATH: /github/workspace
+          SCRIPTS_PATH: /operation/workspace
         # pass input parameter
         with:
           operation: install_version
