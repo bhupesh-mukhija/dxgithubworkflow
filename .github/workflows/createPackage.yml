@@ -1,4 +1,4 @@
-name: create_package_workflow
+name: Create Package Version
 on:
   #push:
     #branches: [ main ]
@@ -8,33 +8,39 @@ jobs:
     runs-on: ubuntu-latest
     name: Create Package Version
     steps:
-      # To use this repository's private action,
-      # you must check out the repository
+      # checkout the repository
       - name: Checkout Repository Main Branch
         id: checkout
         uses: actions/checkout@v2
         with:
           submodules: true
-      - name: Configure AWS
+      # configure aws variables
+      - name: Configure container registry
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{  secrets.AWS_REGION }}
-      - name: Login to AWS ECR
+          aws-region: ${{ secrets.AWS_REGION }}
+      # login to container registry
+      - name: Login to container registry
         id: login-aws-ecr
         uses: aws-actions/amazon-ecr-login@v1
+      # create package version
       - name: Create Package Version
         id: createpkg
-        uses: ./config/workflow # Uses an action in the specified directory
+        uses: ./config/workflow/run-container # Uses an action in the specified directory
         env:
           DEV_HUB_URL: ${{ secrets.DEV_HUB }}
           BRANCH: ${{ github.ref }}
           SCRIPTS_PATH: /github/workspace
+          IMAGE_NAME: sfdxdocker:latest
         # pass input parameter
         with:
+          # operation to perform
           operation: create_version
-          imageurl: $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          # url to pull image
+          imageurl: ${{ steps.login-aws-ecr.outputs.registry }}/${{ env.IMAGE_NAME }}
+      # send notification on step failure
       - name: Send Notification
         env:
           SCRIPTS_PATH: .
