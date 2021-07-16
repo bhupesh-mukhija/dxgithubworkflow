@@ -32,8 +32,8 @@ jobs:
         env:
           DEV_HUB_URL: ${{ secrets.DEV_HUB }}
           BRANCH: ${{ github.ref }}
-          SCRIPTS_PATH: /github/workspace
-          IMAGE_NAME: sfdxdocker:latest
+          SCRIPTS_PATH: /operation/workspace
+          IMAGE_NAME: dockerdx:latest
         # pass input parameter
         with:
           # operation to perform
