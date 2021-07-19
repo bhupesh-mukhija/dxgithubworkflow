@@ -6,6 +6,7 @@
           "package": "salesforce-global-sales",
           "versionName": "1.1.0",
           "versionNumber": "1.2.0.NEXT",
+          "ancestorVersion": "1.1.0.1",
           "dependencies": [
               {
                   "package": "salesforce-global-core",
@@ -24,7 +25,7 @@
   ],
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "51.0",
+  "sourceApiVersion": "52.0",
   "packageAliases": {
       "salesforce-global-sales": "0Ho4K0000004CFWSA2",
       "salesforce-global-core": "0Ho4K0000004CFHSA2",
