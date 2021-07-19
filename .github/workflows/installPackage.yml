@@ -1,7 +1,7 @@
 on:
   workflow_run:
     workflows:
-      - create_package_workflow
+      - Create Package Version
     types: 
       - completed
   workflow_dispatch:
