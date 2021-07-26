@@ -26,7 +26,7 @@
   "sfdcLoginUrl": "https://login.salesforce.com",
   "sourceApiVersion": "52.0",
   "packageAliases": {
-      "salesforce-global-sales": "0Ho4K0000004CFWSA2",
+      "salesforce-global-sales": "0Ho1o000000fxSzCAI",
       "salesforce-global-core": "0Ho4K0000004CFHSA2",
       "salesforce-global-coredatamodel": "0Ho4K0000004CFRSA2"
   }

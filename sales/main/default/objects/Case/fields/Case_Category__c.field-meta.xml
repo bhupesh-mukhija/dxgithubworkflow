@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case_Category__c</fullName>
+    <description>Captures the current stage of the case.</description>
+    <externalId>false</externalId>
+    <label>Case Category</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Processing</fullName>
+                <default>false</default>
+                <label>Processing</label>
+            </value>
+            <value>
+                <fullName>Customization</fullName>
+                <default>false</default>
+                <label>Customization</label>
+            </value>
+            <value>
+                <fullName>Integration</fullName>
+                <default>false</default>
+                <label>Integration</label>
+            </value>
+            <value>
+                <fullName>Configuration</fullName>
+                <default>false</default>
+                <label>Configuration</label>
+            </value>
+            <value>
+                <fullName>Conversion</fullName>
+                <default>false</default>
+                <label>Conversion</label>
+            </value>
+            <value>
+                <fullName>Perfomance</fullName>
+                <default>false</default>
+                <label>Perfomance</label>
+            </value>
+            <value>
+                <fullName>Data and Database</fullName>
+                <default>false</default>
+                <label>Data and Database</label>
+            </value>
+            <value>
+                <fullName>Printing and Reporting</fullName>
+                <default>false</default>
+                <label>Printing and Reporting</label>
+            </value>
+            <value>
+                <fullName>Customer Service</fullName>
+                <default>false</default>
+                <label>Customer Service</label>
+            </value>
+            <value>
+                <fullName>Purchase Ledger</fullName>
+                <default>false</default>
+                <label>Purchase Ledger</label>
+            </value>
+            <value>
+                <fullName>Bank and Cash</fullName>
+                <default>false</default>
+                <label>Bank and Cash</label>
+            </value>
+            <value>
+                <fullName>User Experience</fullName>
+                <default>false</default>
+                <label>User Experience</label>
+            </value>
+            <value>
+                <fullName>R&amp;D</fullName>
+                <default>false</default>
+                <label>R&amp;D</label>
+            </value>
+            <value>
+                <fullName>Compliance</fullName>
+                <default>false</default>
+                <label>Compliance</label>
+            </value>
+            <value>
+                <fullName>Accounting/Payroll - Administration</fullName>
+                <default>false</default>
+                <label>Accounting/Payroll - Administration</label>
+            </value>
+            <value>
+                <fullName>Accounting/Payroll - Bank</fullName>
+                <default>false</default>
+                <label>Accounting/Payroll - Bank</label>
+            </value>
+            <value>
+                <fullName>Accounting/Payroll - Bug</fullName>
+                <default>false</default>
+                <label>Accounting/Payroll - Bug</label>
+            </value>
+            <value>
+                <fullName>Accounting/Payroll - Intelligence Reporting</fullName>
+                <default>false</default>
+                <label>Accounting/Payroll - Intelligence Reporting</label>
+            </value>
+            <value>
+                <fullName>Accounting/Payroll - Processing</fullName>
+                <default>false</default>
+                <label>Accounting/Payroll - Processing</label>
+            </value>
+            <value>
+                <fullName>Accounting/Payroll - Products &amp; Services</fullName>
+                <default>false</default>
+                <label>Accounting/Payroll - Products &amp; Services</label>
+            </value>
+            <value>
+                <fullName>Accounting/Payroll - PYE</fullName>
+                <default>false</default>
+                <label>Accounting/Payroll - PYE</label>
+            </value>
+            <value>
+                <fullName>Accounting/Payroll - Setup</fullName>
+                <default>false</default>
+                <label>Accounting/Payroll - Setup</label>
+            </value>
+            <value>
+                <fullName>Access</fullName>
+                <default>false</default>
+                <label>Access</label>
+            </value>
+            <value>
+                <fullName>Communications</fullName>
+                <default>false</default>
+                <label>Communications</label>
+            </value>
+            <value>
+                <fullName>External Partners inc Deliveries/Returns</fullName>
+                <default>false</default>
+                <label>External Partners inc Deliveries/Returns</label>
+            </value>
+            <value>
+                <fullName>Internal Systems</fullName>
+                <default>false</default>
+                <label>Internal Systems</label>
+            </value>
+            <value>
+                <fullName>People</fullName>
+                <default>false</default>
+                <label>People</label>
+            </value>
+            <value>
+                <fullName>Policies/Processes</fullName>
+                <default>false</default>
+                <label>Policies/Processes</label>
+            </value>
+            <value>
+                <fullName>Price/Value</fullName>
+                <default>false</default>
+                <label>Price/Value</label>
+            </value>
+            <value>
+                <fullName>Product Issue</fullName>
+                <default>false</default>
+                <label>Product Issue</label>
+            </value>
+            <value>
+                <fullName>Service Quality</fullName>
+                <default>false</default>
+                <label>Service Quality</label>
+            </value>
+            <value>
+                <fullName>Account Admin</fullName>
+                <default>false</default>
+                <label>Account Admin</label>
+            </value>
+            <value>
+                <fullName>Data Services</fullName>
+                <default>false</default>
+                <label>Data Services</label>
+            </value>
+            <value>
+                <fullName>Issues</fullName>
+                <default>false</default>
+                <label>Issues</label>
+            </value>
+            <value>
+                <fullName>Installation</fullName>
+                <default>false</default>
+                <label>Installation</label>
+            </value>
+            <value>
+                <fullName>Reporting</fullName>
+                <default>false</default>
+                <label>Reporting</label>
+            </value>
+            <value>
+                <fullName>Professional Services</fullName>
+                <default>false</default>
+                <label>Professional Services</label>
+            </value>
+            <value>
+                <fullName>Website</fullName>
+                <default>false</default>
+                <label>Website</label>
+            </value>
+            <value>
+                <fullName>Sage 200 Developer</fullName>
+                <default>false</default>
+                <label>Sage 200 Developer</label>
+            </value>
+            <value>
+                <fullName>Functionality - 50cloud Accounts</fullName>
+                <default>false</default>
+                <label>Functionality - 50cloud Accounts</label>
+            </value>
+            <value>
+                <fullName>Functionality - 50cloud Payroll</fullName>
+                <default>false</default>
+                <label>Functionality - 50cloud Payroll</label>
+            </value>
+            <value>
+                <fullName>Functionality - Instant Payroll</fullName>
+                <default>false</default>
+                <label>Functionality - Instant Payroll</label>
+            </value>
+            <value>
+                <fullName>Functionality - SBC Payroll</fullName>
+                <default>false</default>
+                <label>Functionality - SBC Payroll</label>
+            </value>
+            <value>
+                <fullName>Functionality - Sage Payroll (Ireland)</fullName>
+                <default>false</default>
+                <label>Functionality - Sage Payroll (Ireland)</label>
+            </value>
+            <value>
+                <fullName>Functionality - SBC Accounting / Start</fullName>
+                <default>false</default>
+                <label>Functionality - SBC Accounting / Start</label>
+            </value>
+            <value>
+                <fullName>Functionality - SBC Partner Edition</fullName>
+                <default>false</default>
+                <label>Functionality - SBC Partner Edition</label>
+            </value>
+            <value>
+                <fullName>Functionality - Jobcosting</fullName>
+                <default>false</default>
+                <label>Functionality - Jobcosting</label>
+            </value>
+            <value>
+                <fullName>Functionality - Forecasting</fullName>
+                <default>false</default>
+                <label>Functionality - Forecasting</label>
+            </value>
+            <value>
+                <fullName>Functionality - Sage 50 HR</fullName>
+                <default>false</default>
+                <label>Functionality - Sage 50 HR</label>
+            </value>
+            <value>
+                <fullName>Functionality - P11D</fullName>
+                <default>false</default>
+                <label>Functionality - P11D</label>
+            </value>
+            <value>
+                <fullName>Functionality - Excel</fullName>
+                <default>false</default>
+                <label>Functionality - Excel</label>
+            </value>
+            <value>
+                <fullName>Functionality - Office 365</fullName>
+                <default>false</default>
+                <label>Functionality - Office 365</label>
+            </value>
+            <value>
+                <fullName>Functionality - TAS Accounts</fullName>
+                <default>false</default>
+                <label>Functionality - TAS Accounts</label>
+            </value>
+            <value>
+                <fullName>Functionality - Sage Accounts Production</fullName>
+                <default>false</default>
+                <label>Functionality - Sage Accounts Production</label>
+            </value>
+            <value>
+                <fullName>Functionality - Sage Accounts Production Advanced</fullName>
+                <default>false</default>
+                <label>Functionality - Sage Accounts Production Advanced</label>
+            </value>
+            <value>
+                <fullName>Functionality - Sage Taxation</fullName>
+                <default>false</default>
+                <label>Functionality - Sage Taxation</label>
+            </value>
+            <value>
+                <fullName>Functionality - Sage Corporation Tax</fullName>
+                <default>false</default>
+                <label>Functionality - Sage Corporation Tax</label>
+            </value>
+            <value>
+                <fullName>Functionality - Sage Practice Solution</fullName>
+                <default>false</default>
+                <label>Functionality - Sage Practice Solution</label>
+            </value>
+            <value>
+                <fullName>Functionality - Sage Final Accounts Online</fullName>
+                <default>false</default>
+                <label>Functionality - Sage Final Accounts Online</label>
+            </value>
+            <value>
+                <fullName>Functionality - Sage Personal Tax Online</fullName>
+                <default>false</default>
+                <label>Functionality - Sage Personal Tax Online</label>
+            </value>
+            <value>
+                <fullName>Functionality - Sage Corporation Tax Online</fullName>
+                <default>false</default>
+                <label>Functionality - Sage Corporation Tax Online</label>
+            </value>
+            <value>
+                <fullName>Functionality - Sage Accountant Cloud</fullName>
+                <default>false</default>
+                <label>Functionality - Sage Accountant Cloud</label>
+            </value>
+            <value>
+                <fullName>Functionality - Sage 200 Manufacturing</fullName>
+                <default>false</default>
+                <label>Functionality - Sage 200 Manufacturing</label>
+            </value>
+            <value>
+                <fullName>Functionality - Sage CoreTime</fullName>
+                <default>false</default>
+                <label>Functionality - Sage CoreTime</label>
+            </value>
+            <value>
+                <fullName>Functionality - Sage 200 (Standard, Pro, Extra Online)</fullName>
+                <default>false</default>
+                <label>Functionality - Sage 200 (Standard, Pro, Extra Online)</label>
+            </value>
+            <value>
+                <fullName>Functionality - Sage 200 CRM</fullName>
+                <default>false</default>
+                <label>Functionality - Sage 200 CRM</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
