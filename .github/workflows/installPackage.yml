@@ -37,6 +37,8 @@ jobs:
           DEV_HUB_URL: ${{ secrets.DEV_HUB }}
           ENV_URL: ${{ secrets.DEV_ENV }}
           SCRIPTS_PATH: /operation/workspace
+          BRANCH: ${{ github.ref }}
+          IMAGE_NAME: dockerdx:latest
         # pass input parameter
         with:
           # operation to perform
@@ -72,8 +74,10 @@ jobs:
         uses: ./config/workflow/run-container # Uses an action in the specified directory
         env:
           DEV_HUB_URL: ${{ secrets.DEV_HUB }}
-          ENV_URL: ${{ secrets.CI_ENV }}
+          ENV_URL: ${{ secrets.CI_ENV }},
           SCRIPTS_PATH: /operation/workspace
+          BRANCH: ${{ github.ref }}
+          IMAGE_NAME: dockerdx:latest
         # pass input parameter
         with:
           # operation to perform
@@ -111,6 +115,8 @@ jobs:
           DEV_HUB_URL: ${{ secrets.DEV_HUB }}
           ENV_URL: ${{ secrets.SIT_ENV }}
           SCRIPTS_PATH: /operation/workspace
+          BRANCH: ${{ github.ref }}
+          IMAGE_NAME: dockerdx:latest
         # pass input parameter
         with:
           # operation to perform
