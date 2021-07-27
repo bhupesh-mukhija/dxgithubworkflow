@@ -10,12 +10,25 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
+      # checkout repository
       - name: Checkout Repository Main Branch
         id: checkout
         uses: actions/checkout@v2
         with:
           ref: main
           submodules: true
+      # configure aws variables
+      - name: Configure container registry
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+      # login to container registry
+      - name: Login to container registry
+        id: login-aws-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+      # install package to the environment
       - name: Install package in dev environment
         id: install_dev
         uses: ./config/workflow/run-container # Uses an action in the specified directory
@@ -25,17 +38,33 @@ jobs:
           SCRIPTS_PATH: /operation/workspace
         # pass input parameter
         with:
+          # operation to perform
           operation: install_version
+          # url to pull image
+          imageurl: ${{ steps.login-aws-ecr.outputs.registry }}/${{ env.IMAGE_NAME }}
   install_ci:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
+      # checkout repository
       - name: Checkout Repository Main Branch
         id: checkout
         uses: actions/checkout@v2
         with:
           ref: main
           submodules: true
+      # configure aws variables
+      - name: Configure container registry
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+      # login to container registry
+      - name: Login to container registry
+        id: login-aws-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+      # install package to the environment
       - name: Install package in ci environment
         id: install_ci
         uses: ./config/workflow/run-container # Uses an action in the specified directory
@@ -45,17 +74,33 @@ jobs:
           SCRIPTS_PATH: /operation/workspace
         # pass input parameter
         with:
+          # operation to perform
           operation: install_version
+          # url to pull image
+          imageurl: ${{ steps.login-aws-ecr.outputs.registry }}/${{ env.IMAGE_NAME }}
   install_sit:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
+      # checkout repository
       - name: Checkout Repository Main Branch
         id: checkout
         uses: actions/checkout@v2
         with:
           ref: main
           submodules: true
+      # configure aws variables
+      - name: Configure container registry
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+      # login to container registry
+      - name: Login to container registry
+        id: login-aws-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+      # install package to the environment
       - name: Install package in sit environment
         id: install_sit
         uses: ./config/workflow/run-container # Uses an action in the specified directory
@@ -65,4 +110,7 @@ jobs:
           SCRIPTS_PATH: /operation/workspace
         # pass input parameter
         with:
+          # operation to perform
           operation: install_version
+          # url to pull image
+          imageurl: ${{ steps.login-aws-ecr.outputs.registry }}/${{ env.IMAGE_NAME }}
