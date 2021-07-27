@@ -8,7 +8,8 @@ on:
 jobs:
   install_dev:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    # TODO: UNCOMMENT, COMMENTED TO TEST
+    #if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       # checkout repository
       - name: Checkout Repository Main Branch
@@ -44,7 +45,8 @@ jobs:
           imageurl: ${{ steps.login-aws-ecr.outputs.registry }}/${{ env.IMAGE_NAME }}
   install_ci:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    # TODO: UNCOMMENT, COMMENTED TO TEST
+    #if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       # checkout repository
       - name: Checkout Repository Main Branch
@@ -80,7 +82,8 @@ jobs:
           imageurl: ${{ steps.login-aws-ecr.outputs.registry }}/${{ env.IMAGE_NAME }}
   install_sit:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    # TODO: UNCOMMENT, COMMENTED TO TEST
+    #if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       # checkout repository
       - name: Checkout Repository Main Branch
