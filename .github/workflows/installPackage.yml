@@ -32,7 +32,7 @@ jobs:
       # install package to the environment
       - name: Install package in dev environment
         id: install_dev
-        uses: ./config/workflow/run-container # Uses an action in the specified directory
+        uses: ./config/workflow/run-container-install # Uses an action in the specified directory
         env:
           DEV_HUB_URL: ${{ secrets.DEV_HUB }}
           ENV_URL: ${{ secrets.DEV_ENV }}
@@ -71,7 +71,7 @@ jobs:
       # install package to the environment
       - name: Install package in ci environment
         id: install_ci
-        uses: ./config/workflow/run-container # Uses an action in the specified directory
+        uses: ./config/workflow/run-container-install # Uses an action in the specified directory
         env:
           DEV_HUB_URL: ${{ secrets.DEV_HUB }}
           ENV_URL: ${{ secrets.CI_ENV }},
@@ -110,7 +110,7 @@ jobs:
       # install package to the environment
       - name: Install package in sit environment
         id: install_sit
-        uses: ./config/workflow/run-container # Uses an action in the specified directory
+        uses: ./config/workflow/run-container-install # Uses an action in the specified directory
         env:
           DEV_HUB_URL: ${{ secrets.DEV_HUB }}
           ENV_URL: ${{ secrets.SIT_ENV }}
