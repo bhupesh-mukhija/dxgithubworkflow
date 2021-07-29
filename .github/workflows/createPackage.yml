@@ -41,6 +41,8 @@ jobs:
           operation: create_version
           # url to pull image
           imageurl: ${{ steps.login-aws-ecr.outputs.registry }}/${{ env.IMAGE_NAME }}
+          # workspace path
+          workspace: $GITHUB_WORKSPACE
       # send notification on step failure
       - name: Send Notification
         env:
