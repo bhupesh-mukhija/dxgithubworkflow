@@ -19,7 +19,12 @@ jobs:
          id: chkop
          shell: bash
          run: echo ${{ steps.createpkg.outputs.output_step_var }}
-       - name: check output
+       - name: Repo
          id: super
          shell: bash
-         run: echo $(echo ${GITHUB_REPOSITORY} | sed -e 's/\/.*\///g')
+         run: echo $GITHUB_REPOSITORY
+       - name: Workspace
+         id: super
+         shell: bash
+         run: echo $GITHUB_WORKSPACE
+        
