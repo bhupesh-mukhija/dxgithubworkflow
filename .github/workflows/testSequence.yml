@@ -19,3 +19,7 @@ jobs:
          id: chkop
          shell: bash
          run: echo ${{ steps.createpkg.outputs.output_step_var }}
+       - name: check output
+         id: super
+         shell: bash
+         run: echo Here is the repo $GITHUB_REPOSITORY
