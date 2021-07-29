@@ -22,4 +22,4 @@ jobs:
        - name: check output
          id: super
          shell: bash
-         run: echo "${GITHUB_REPOSITORY}" | sed -e 's/\/.*\///g'
+         run: echo $(echo ${GITHUB_REPOSITORY} | sed -e 's/\/.*\///g')
