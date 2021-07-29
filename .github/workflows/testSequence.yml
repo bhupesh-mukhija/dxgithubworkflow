@@ -20,11 +20,11 @@ jobs:
          shell: bash
          run: echo ${{ steps.createpkg.outputs.output_step_var }}
        - name: Repo
-         id: super
+         id: Repo
          shell: bash
          run: echo $GITHUB_REPOSITORY
        - name: Workspace
-         id: super
+         id: Workspace
          shell: bash
          run: echo $GITHUB_WORKSPACE
         
