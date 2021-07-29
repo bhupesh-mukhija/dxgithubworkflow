@@ -22,4 +22,4 @@ jobs:
        - name: check output
          id: super
          shell: bash
-         run: echo Here is the repo ${GITHUB_REPOSITORY##/*/}
+         run: echo "${GITHUB_REPOSITORY}" | sed -e 's/\/.*\///g'
