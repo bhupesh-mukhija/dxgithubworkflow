@@ -34,7 +34,7 @@ jobs:
           DEV_HUB_URL: ${{ secrets.ORG_SALESFORCEDX_PROD_URL }}
           BRANCH: ${{ github.ref }}
           LATEST_COMMIT: ${{ github.sha }}
-          SCRIPTS_PATH: /operation/workspace
+          SCRIPTS_PATH: /operation/workspace/config/
           IMAGE_NAME: sfdx-config:latest
         # pass input parameter
         with:
