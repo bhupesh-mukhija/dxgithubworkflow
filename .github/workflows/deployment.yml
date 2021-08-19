@@ -1,20 +1,22 @@
-name: Create Package Version
+# job to install packages to prod path sandboxes (after sit1) and production
+name: Deployment
 on:
-  #push:
-    #branches: [ qa ]
   workflow_dispatch:
+    inputs: 
+      environment:
+        description: 'Enviornment to install'
+        required: true
+        default: 'sandboxes'
 jobs:
-  main_sfdx_ci:
+  install_package:
     runs-on: ubuntu-latest
-    name: Create Package Version
     steps:
-      # checkout the repository
+      # checkout repository
       - name: Checkout Repository Main Branch
         id: checkout
         uses: actions/checkout@v2
         with:
-          submodules: true
-          ssh-key: ${{ secrets.ORG_SALESFORCEDX_USER_SSH_KEY }}
+          ref: master
       # configure aws variables
       - name: Configure container registry
         uses: aws-actions/configure-aws-credentials@v1
@@ -26,29 +28,24 @@ jobs:
       - name: Login to container registry
         id: login-aws-ecr
         uses: aws-actions/amazon-ecr-login@v1
-      # create package version
-      - name: Create Package Version
-        id: createpkg
-        uses: ./config/workflow/run-container # Uses an action in the specified directory
+      # install package to the environment
+      - name: Install Packages
+        id: install_ci
+        uses: ./workflow/run-container # Uses an action in the specified directory
         env:
           DEV_HUB_URL: ${{ secrets.ORG_SALESFORCEDX_PROD_URL }}
-          BRANCH: ${{ github.ref }}
-          LATEST_COMMIT: ${{ github.sha }}
+          ENV_URL: ${{ secrets.ORG_SALESFORCEDX_SAGE_CI_URL }},
           SCRIPTS_PATH: /operation/workspace
+          BRANCH: ${{ github.ref }}
           IMAGE_NAME: sfdx-config:latest
         # pass input parameter
         with:
           # operation to perform
-          operation: create_version
+          operation: deployment
           # url to pull image
           imageurl: ${{ steps.login-aws-ecr.outputs.registry }}/${{ env.IMAGE_NAME }}
           # workspace path
           workspace: $GITHUB_WORKSPACE
-      # send notification on step failure
-      # - name: Send Notification
-      #   env:
-      #     SCRIPTS_PATH: .
-      #   if: ${{ failure() }}
-      #   shell: bash
-      #   run: ./config/scripts/ci/sendNotification.sh
-      
+          # environments
+          emvironment: ${{ github.event.inputs.environment }}
+          

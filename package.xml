@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <!--<types> 
+        <name>QuickAction</name>
+        <members>DNBoptimizer__DnBCompanyRecord__c.Account_D_B_Company_Record_View</members>
+    </types>
+    <types>
+        <name>FlexiPage</name>
+        <members>Sales_Global_Enterprise_Lightning_UtilityBar</members>
+        <members>Account_Record_Page_for_Sales_with_Lightning_Profile</members>
+        <members>Global_Sales_Account_Page</members>
+        <members>Sales_Global_Console_UtilityBar</members>
+        <members>Global_Lead_Page_Layout</members>
+    </types>
+    <types>
+        <name>FlexiPage</name>
+        <members>standard__LightningSales</members>
+    </types>
+    <types>
+        <name>CustomApplication</name>
+        <members>Sales_Global_Console</members>
+    </types>
+    <types> 
+        <name>PermissionSet</name>
+        <members>DNB_Account_Utilitybar_Override</members>
+        <members>DNB_Optimizer_Solution</members>
+    </types>
+    <types>
+        <name>CustomObject</name>
+       <members>Account</members>
+       <members>Lead</members>
+    </types>
+    <types>
+        <name>Layout</name>
+        <members>Account-Global Sales Account Layout</members>
+        <members>Account-Standard Account</members>
+        <members>Lead-Standard Lead Layout</members>
+        <members>Lead-Global Lead PageLayout</members>
+    </types>-->
+    <types> 
+        <name>CustomField</name>
+        <members>Activity.Status__c</members>
+    </types>
+    <version>52.0</version>
+</Package>
